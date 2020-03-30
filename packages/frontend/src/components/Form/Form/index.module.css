@@ -1,0 +1,3 @@
+.form {
+  @apply box-border pl-3 pr-3;
+}

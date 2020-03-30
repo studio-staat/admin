@@ -1,0 +1,11 @@
+.button-group {
+  @apply inline-flex;
+}
+
+.button-group button:first-child {
+  @apply rounded-l;
+}
+
+.button-group button:last-child {
+  @apply rounded-r;
+}

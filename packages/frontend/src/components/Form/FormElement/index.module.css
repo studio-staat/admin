@@ -1,0 +1,3 @@
+.form-element {
+  @apply box-border pb-6;
+}
