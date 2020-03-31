@@ -11,12 +11,6 @@ module.exports = [
     tag: "API",
     color: "BG_BLUE",
     command: "npm install",
-    directory: BASE_PATH
-  },
-  {
-    tag: "API",
-    color: "BG_BLUE",
-    command: "npm install",
     directory: API_PATH
   },
   {

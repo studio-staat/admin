@@ -8,7 +8,7 @@
     "build": "NODE_ENV=production multi-proc --config ./core/multiprocesses/build.js start",
     "dev": "NODE_ENV=development multi-proc --config ./core/multiprocesses/development.js start",
     "deploy": "npm run build && npm start",
-    "setup": "multi-proc --config ./core/multiprocesses/install.js start"
+    "preinstall": "multi-proc --config ./core/multiprocesses/install.js start"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,6 @@
     "multi-proc": "^1.1.0"
   },
   "dependencies": {
-    "admin-frontend": "file:packages/frontend",
     "dotenv": "^8.2.0"
   }
 }
