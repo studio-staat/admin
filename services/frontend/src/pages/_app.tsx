@@ -2,7 +2,7 @@ import ApolloProvider, { client } from "../providers/apollo";
 import Head from "next/head";
 import "../style/main.css";
 
-function MyApp({ Component, pageProps }) {
+function AdminApp({ Component, pageProps }: any) {
   return (
     <>
       <Head>
@@ -15,4 +15,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default AdminApp;

@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { throttle } from "lodash";
 
-export function useWindowSize({ throttleMs = 100 }: any = {}) {
+interface useWindowSizeTypes {
+  throttleMs?: number;
+}
+
+export function useWindowSize({ throttleMs = 100 }: useWindowSizeTypes = {}) {
   const [winWidth, setWinWidth] = useState(0);
   const [winHeight, setWinHeight] = useState(0);
   const _resizeHandler = throttle(() => {

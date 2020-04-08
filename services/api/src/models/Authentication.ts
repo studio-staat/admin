@@ -10,7 +10,7 @@ export class Authentication {
         ? {
             userId: 1,
             userName: "pierro",
-            userStatus: "enabled"
+            userStatus: "enabled",
           }
         : null;
     return check;
