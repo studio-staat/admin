@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 import classNames from "classnames";
 import { Component } from "../../../extends";
-import style from "./index.module.css";
+import styles from "./index.module.css";
 
 interface InputPropTypes {
   className?: string;
@@ -27,12 +27,14 @@ export const Input = Component(
       select && input.select();
     }, [focus, select]);
     return (
-      <input
-        ref={ref}
-        type={type}
-        {...props}
-        className={classNames(className, style.input)}
-      />
+      <>
+        <input
+          ref={ref}
+          type={type}
+          {...props}
+          className={classNames(className, styles.input)}
+        />
+      </>
     );
   }
 );

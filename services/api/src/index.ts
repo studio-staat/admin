@@ -27,30 +27,45 @@ const resolvers = {
       return [
         {
           userId: 1,
-          userName: "pierro"
+          userName: "pierro",
         },
         {
           userId: 2,
-          userName: "nanda"
-        }
+          userName: "nanda",
+        },
+        {
+          userId: 3,
+          userName: "joop",
+        },
+        {
+          userId: 4,
+          userName: "hans",
+        },
       ];
-    }
+    },
   },
   Mutation: {
-    doLogin: async (_, { userName, userPass }: any) => {
+    doLogin: async (parent: any, { userName, userPass }: any, context: any) => {
       const auth = new Authentication();
       let loggedUser;
       try {
         loggedUser = await auth.login({ userName, userPass });
       } catch (err) {}
+      context.res.cookie("myLoggedUserCookieTest", 12345, {
+        maxAge: 900000,
+        httpOnly: true,
+      });
       return { loggedUser };
-    }
-  }
+    },
+  },
 };
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers
+  resolvers,
+  context: async ({ req, res }) => {
+    return { req, res };
+  },
 });
 
 (async () => {

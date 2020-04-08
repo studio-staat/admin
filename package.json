@@ -8,7 +8,8 @@
     "build": "NODE_ENV=production multi-proc --config ./core/multiprocesses/build.js start",
     "dev": "NODE_ENV=development multi-proc --config ./core/multiprocesses/development.js start",
     "deploy": "npm run build && npm start",
-    "preinstall": "multi-proc --config ./core/multiprocesses/install.js start"
+    "uninstall": "multi-proc --config ./core/multiprocesses/uninstall.js start",
+    "preinstall": "npm run uninstall && npm i dotenv --save && multi-proc --config ./core/multiprocesses/install.js start"
   },
   "keywords": [],
   "author": "",

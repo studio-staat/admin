@@ -8,7 +8,7 @@ import {
   ButtonGroup,
   InputText,
   InputPassword,
-  Overlay
+  Overlay,
 } from "../components";
 
 interface useLoginFormTypes {
@@ -27,7 +27,7 @@ export const LoginForm = Container(() => {
     userPass,
     setUserPass,
     submitForm,
-    loggedUser
+    loggedUser,
   }: useLoginFormTypes = useLoginForm();
 
   if (loggedUser) {
@@ -59,16 +59,13 @@ export const LoginForm = Container(() => {
           />
         </FormElement>
         <ButtonGroup>
-          <Button onClick={() => submitForm()}>Login</Button>
-          <SecondaryButton
-            onClick={() => {
-              setUserName("");
-              setUserPass("");
-            }}
+          <Button
+            onClick={() => submitForm({ userName, userPass })}
+            icon="user"
           >
-            Reset
-          </SecondaryButton>
-          <SecondaryButton>Cancel</SecondaryButton>
+            Login
+          </Button>
+          <SecondaryButton icon="eject">Cancel</SecondaryButton>
         </ButtonGroup>
       </Form>
     </>

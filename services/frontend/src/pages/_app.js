@@ -1,11 +1,17 @@
 import ApolloProvider, { client } from "../providers/apollo";
+import Head from "next/head";
 import "../style/main.css";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <>
+      <Head>
+        <link href="fontawesome/css/all.css" rel="stylesheet" />
+      </Head>
+      <ApolloProvider client={client}>
+        <Component {...pageProps} />
+      </ApolloProvider>
+    </>
   );
 }
 

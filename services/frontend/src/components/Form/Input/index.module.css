@@ -5,3 +5,8 @@
 .input:focus {
   @apply outline-none shadow-outline;
 }
+
+.reset {
+  position: relative;
+  top: -30px;
+}

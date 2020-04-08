@@ -14,8 +14,23 @@ const DO_LOGIN = gql`
   }
 `;
 
+const GET_LOGGEED_USER = gql`
+  query {
+    loggedUser {
+      userId
+      userName
+      userStatus
+    }
+  }
+`;
+
 export function useLoginForm() {
-  const [doLogin, { data }] = useMutation(DO_LOGIN);
+  const [doLogin, { data }] = useMutation(DO_LOGIN, {
+    update(cache, { data: { doLogin } }) {
+      //const { loggedUser } = cache.readQuery({ query: GET_LOGGEED_USER });
+      //console.log({ loggedUser });
+    },
+  });
   const [userName, setUserName] = useState("");
   const [userPass, setUserPass] = useState("");
   const [loggedUser, setLoggedUser] = useState(null);
@@ -29,6 +44,6 @@ export function useLoginForm() {
     userPass,
     setUserPass,
     submitForm,
-    loggedUser
+    loggedUser,
   };
 }
