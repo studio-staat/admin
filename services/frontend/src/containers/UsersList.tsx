@@ -5,15 +5,15 @@ export const UsersList = Container(() => {
   const { loading, error, users }: any = useUsers();
   if (!users || !users.length) return false;
   return (
-    <ul>
-      {users.map(user => {
+    <div>
+      {users.map((user) => {
         return (
-          <li key={`key${user.userName}$[user.userId]`}>
+          <div key={`key${user.userName}$[user.userId]`}>
             {user.userName} [ID{user.userId}]
-          </li>
+          </div>
         );
       })}
-    </ul>
+    </div>
   );
 });
 //getUsers

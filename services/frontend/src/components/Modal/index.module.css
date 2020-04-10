@@ -1,0 +1,10 @@
+.modal {
+  @apply rounded overflow-hidden shadow-lg z-50 flex max-w-md m-auto flex-col;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 400px;
+}
+
+.modalChild {
+  @apply px-6 py-4;
+}
