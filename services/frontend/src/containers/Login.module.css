@@ -1,0 +1,64 @@
+.loginform {
+}
+
+.form {
+  @apply bg-white;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.authbox {
+  @apply bg-orange-100 border border-orange-400 text-orange-700 px-3 py-2 rounded;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.authbox:hover {
+  @apply bg-green-100 transition duration-150 border-green-400 text-black cursor-pointer;
+}
+
+.avatar {
+  margin-right: 16px;
+}
+
+.avatar img {
+  width: 34px;
+  height: 34px;
+  @apply rounded-full;
+}
+
+.name {
+  @apply text-sm;
+}
+
+.popover {
+  @apply flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+}
+
+.popoverHover {
+  color: green;
+  cursor: pointer;
+}
+
+.popover i:hover {
+  @apply popoverHover;
+}
+
+.popoverChild {
+  margin-right: 8px;
+}
+
+.popoverChild:hover {
+  @apply popoverHover;
+}
+
+.popoverChild:last-child {
+  margin-right: 0px;
+}

@@ -16,6 +16,7 @@
     "@types/react-dom": "^16.9.6",
     "apollo-boost": "^0.4.7",
     "apollo-cache-inmemory": "^1.6.5",
+    "apollo-link-http": "^1.5.17",
     "classnames": "^2.2.6",
     "graphql": "^14.6.0",
     "isomorphic-fetch": "^2.2.1",
@@ -23,7 +24,8 @@
     "next": "^9.3.2",
     "next-images": "^1.4.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-tiny-popover": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^13.9.5",

@@ -54,8 +54,12 @@ const resolvers = {
       try {
         loggedUser = await auth.login({ userName, userPass });
       } catch (err) {}
-      //console.log(context.res.cookie);
-      //context.res.cookie("loggedHash", "12345");
+      console.log("cookie done!");
+      context.res.setHeader("Cache-Control", "private");
+      context.res.cookie("loggedHash", "12345", {
+        expires: new Date(Date.now() + 9000000),
+      });
+      console.log("cookie done!");
       return { loggedUser };
     },
     createUser: async (
@@ -76,18 +80,32 @@ const resolvers = {
 };
 
 const server = express();
+
+var corsOptions = {
+  origin: "http://localhost:5000",
+  credentials: true, // <-- REQUIRED backend setting
+};
+server.use(cors(corsOptions));
 server.use(cookieParser());
-server.use(cors());
+
+// server.get("/cookie", (req, res) => {
+//   res.cookie("test", "This is a test");
+//   res.end("test");
+// });
 
 const apollo = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ req, res }) => ({ req, res }),
+  context: async ({ req, res }) => {
+    console.log(req.cookies);
+    return { req, res };
+  },
 });
 
 apollo.applyMiddleware({
   app: server,
   path: "/",
+  cors: false,
 });
 
 server.listen({ port: process.env.API_PORT || 4000 }, () => {

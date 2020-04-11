@@ -24,7 +24,7 @@ const GET_LOGGEED_USER = gql`
   }
 `;
 
-export function useLoginForm() {
+export function useLoginForm({ onSuccess = null, onFail = null }: any) {
   const [doLogin, { data }] = useMutation(DO_LOGIN, {
     update(cache, { data: { doLogin } }) {
       //const { loggedUser } = cache.readQuery({ query: GET_LOGGEED_USER });
@@ -36,7 +36,20 @@ export function useLoginForm() {
   const [loggedUser, setLoggedUser] = useState(null);
   const submitForm = async () => {
     const login = await doLogin({ variables: { userName, userPass } });
-    setLoggedUser(login.data.doLogin.loggedUser);
+    const loggedUser =
+      login && login.data && login.data.doLogin && login.data.doLogin.loggedUser
+        ? login.data.doLogin.loggedUser
+        : null;
+    if (loggedUser) {
+      if (typeof onSuccess === "function") {
+        await onSuccess(loggedUser);
+      }
+    } else {
+      if (typeof onFail === "function") {
+        await onFail(loggedUser);
+      }
+    }
+    setLoggedUser(loggedUser);
   };
   return {
     userName,

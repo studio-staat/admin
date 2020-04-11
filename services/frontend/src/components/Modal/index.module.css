@@ -1,10 +1,22 @@
 .modal {
-  @apply rounded overflow-hidden shadow-lg z-50 flex max-w-md m-auto flex-col;
-  margin-left: auto;
-  margin-right: auto;
+  @apply overflow-hidden rounded bg-white shadow-inner;
   min-width: 400px;
+  z-index: 15;
 }
 
-.modalChild {
-  @apply px-6 py-4;
+.child {
+  @apply flex flex-col;
+
+  padding: 32px;
+}
+
+.overlay {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.8;
 }

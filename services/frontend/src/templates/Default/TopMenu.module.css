@@ -1,0 +1,36 @@
+.topmenu {
+  @apply flex absolute top-0 left-0 right-0 pl-8 pr-8 pt-1 pb-1 box-border;
+  align-items: center;
+  height: 50px;
+}
+
+.topmenuItem {
+  @apply mr-4 cursor-pointer text-sm;
+}
+
+.topmenuItem:hover {
+  @apply text-orange-500;
+}
+
+.topmenuItem:last-child {
+  @apply mr-0;
+}
+
+.topmenuSubmenu {
+  @apply bg-orange-500 text-sm;
+}
+
+.topmenuSubmenuItem {
+  @apply flex pl-2 pr-2 pt-1 pb-1 cursor-pointer text-white rounded;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 150px;
+}
+
+.topmenuSubmenuItem:last-child {
+  border-bottom: none;
+}
+
+.topmenuSubmenuItem:hover {
+  @apply bg-blue-700;
+}

@@ -1,6 +1,7 @@
 import { Template } from "../../extends";
-import { LoginForm } from "../../containers";
-import { MiddleCenter } from "../../components";
+import { AuthBox } from "../../containers";
+import { TopMenu } from "./TopMenu";
+import styles from "./index.module.css";
 
 interface DefaultTemplateTypes {
   children: any;
@@ -9,18 +10,18 @@ interface DefaultTemplateTypes {
 }
 
 export const DefaultTemplate = Template(
-  ({ children, winWidth, winHeight }: DefaultTemplateTypes) => {
+  ({ children }: DefaultTemplateTypes) => {
     return (
-      <>
-        TPL
-        {children}
-        {/* 
-        winWidth: {winWidth} winHeight: {winHeight}
-        <MiddleCenter width={800} height={600}>
-          <LoginForm />
-        </MiddleCenter>
-        */}
-      </>
+      <div className={styles.DefaultTemplate}>
+        <div className={styles.leftColumn}>Content that cannot flex</div>
+        <div className={styles.middleColumn}>
+          <TopMenu />
+          {children}
+        </div>
+        <div className={styles.rightColumn}>
+          <AuthBox />
+        </div>
+      </div>
     );
   }
 );
